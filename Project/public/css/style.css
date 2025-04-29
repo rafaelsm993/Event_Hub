@@ -160,7 +160,7 @@ body {
 /*=============Style css=========*/
 
 /*-------------------------------------
-        2. Top-area
+      2. Top-area
 --------------------------------------*/
 nav.navbar.bootsnav {
   background-color: transparent;
@@ -262,11 +262,11 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.navbar-toggle */
 
 /*-------------------------------------
-        3.  Welcome-hero
+      3.  Welcome-hero
 --------------------------------------*/
 .welcome-hero {
   position: relative;
-  background: url(/images/welcome-hero/welcome-banner.jpg) no-repeat;
+  background: url(../images/welcome-hero/welcome-banner.jpg) no-repeat;
   background-position: center;
   background-size: cover;
   z-index: 1;
@@ -328,7 +328,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.welcome-hero-txt*/
 
 /*-------------------------------------
-        4. Model-Search
+      4. Model-Search
 --------------------------------------*/
 .model-search-content .col-sm-12 {
   padding: 0;
@@ -398,7 +398,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.single-model-search*/
 
 /*-------------------------------------
-        5. Service 
+      5. Service 
 --------------------------------------*/
 .service {
   padding: 260px 0 87px;
@@ -471,7 +471,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 }
 
 /*-------------------------------------
-        6. New-cars
+      6. New-cars
 --------------------------------------*/
 .new-cars {
   background: #f8f9fb;
@@ -521,7 +521,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.owl-dots */
 
 /*-------------------------------------
-        7. Featured-cars
+      7. Featured-cars
 --------------------------------------*/
 .featured-cars {
   padding: 112px 0 120px;
@@ -578,7 +578,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.single-featured-cars*/
 
 /*-------------------------------------       
-        8. Clients-say 
+      8. Clients-say 
 --------------------------------------*/
 .clients-say {
   padding: 115px 0 80px;
@@ -659,7 +659,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*owl carousel*/
 
 /*-------------------------------------
-        9. Brand
+      9. Brand
 --------------------------------------*/
 .brand {
   padding: 120px 0;
@@ -678,11 +678,11 @@ nav.navbar.bootsnav .navbar-toggle i {
   border-radius: 0;
 }
 /*-------------------------------------
-        10. Blog
+      10. Blog
 --------------------------------------*/
 
 /*-------------------------------------
-        12. Contact
+      12. Contact
 --------------------------------------*/
 .contact {
   background: #2a2d54;
@@ -820,7 +820,7 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.footer-copyright */
 
 /*===============================
-    Scroll Top
+  Scroll Top
 ===============================*/
 #scroll-Top .return-to-top {
   position: fixed;
@@ -870,4 +870,3 @@ nav.navbar.bootsnav .navbar-toggle i {
     bottom: 7px;
   }
 }
-/*========================Thank you=================*/

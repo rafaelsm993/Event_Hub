@@ -478,29 +478,31 @@
         // ------------------------------------------------------------------------------ //
         // Navbar Sticky
         // ------------------------------------------------------------------------------ //
-
-
-
         navbarSticky: function () {
             var getNav = $("nav.navbar.bootsnav"),
                 navSticky = getNav.hasClass("navbar-sticky");
 
             if (navSticky) {
-
                 // Set Height Navigation
                 var getHeight = getNav.height();
                 $(".wrap-sticky").height(getHeight);
 
-                // Windown on scroll
-                var getOffset = $(".wrap-sticky").offset().top;
-                $(window).on("scroll", function () {
-                    var scrollTop = $(window).scrollTop();
-                    if (scrollTop > getOffset) {
-                        getNav.addClass("sticked");
-                    } else {
-                        getNav.removeClass("sticked");
-                    }
-                });
+                // Check if .wrap-sticky exists
+                var wrapSticky = $(".wrap-sticky");
+                if (wrapSticky.length) {
+                    // Window on scroll
+                    var getOffset = wrapSticky.offset().top;
+                    $(window).on("scroll", function () {
+                        var scrollTop = $(window).scrollTop();
+                        if (scrollTop > getOffset) {
+                            getNav.addClass("sticked");
+                        } else {
+                            getNav.removeClass("sticked");
+                        }
+                    });
+                } else {
+                    console.warn("Warning: .wrap-sticky element not found.");
+                }
             }
         },
 
