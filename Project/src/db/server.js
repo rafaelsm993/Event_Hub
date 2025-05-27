@@ -17,7 +17,10 @@ db.run(`CREATE TABLE IF NOT EXISTS usuarios (
   nome TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
   senha TEXT NOT NULL,
-  tipo TEXT NOT NULL
+  tipo TEXT NOT NULL,
+  cpf TEXT,
+  cnpj TEXT,
+  isCNPJ BOOLEAN NOT NULL DEFAULT 0
 )`);
 
 db.run(`CREATE TABLE IF NOT EXISTS eventos (

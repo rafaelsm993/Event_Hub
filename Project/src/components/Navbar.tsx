@@ -1,4 +1,14 @@
+'use client'
+import { useState } from 'react';
+// import Modal from './Modal'; // Make sure to import the Modal component
+
 export default function Navbar() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <div className="top-area">
       <div className="header-area">
@@ -43,13 +53,25 @@ export default function Navbar() {
                 <li className="scroll">
                   <a href="#contact">contact</a>
                 </li>
+                <li className="scroll">
+                  <a href="#login-modal" data-toggle="modal">
+
+                  <button onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleModal();
+                  }}>
+                    ENTRAR
+                  </button>
+                    </a>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
       </div>
       <div className="clearfix"></div>
+      {isModalOpen && <Modal />}
     </div>
   );
-};
-
+}
