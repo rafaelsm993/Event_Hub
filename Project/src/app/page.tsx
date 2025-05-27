@@ -6,16 +6,16 @@ export default function Home() {
       <section id="home" className="welcome-hero">
         <div className="container">
           <div className="welcome-hero-txt">
-            <h2>get your desired car in reasonable price</h2>
+            <h2>Faça seu evento na Event Hub</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Nós da Event Hub temos os melhores eventos, venha tambem fazer seu evento conosco
             </p>
+
             <button
               className="welcome-btn animated fadeInDown"
               style={{ opacity: 0 }}
             >
-              contact us
+              crie seu evento
             </button>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function Home() {
       <section id="clients-say" className="clients-say">
         <div className="container">
           <div className="section-header">
-            <h2>what our clients say</h2>
+            <h2>Nossos maiores eventos</h2>
           </div>
           <div className="row">
             <div className="owl-carousel testimonial-carousel">
