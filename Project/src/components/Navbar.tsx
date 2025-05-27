@@ -38,13 +38,7 @@ export default function Navbar() {
                   <a href="#service">service</a>
                 </li>
                 <li className="scroll">
-                  <a href="#featured-cars">featured cars</a>
-                </li>
-                <li className="scroll">
                   <a href="#new-cars">new cars</a>
-                </li>
-                <li className="scroll">
-                  <a href="#brand">brands</a>
                 </li>
                 <li className="scroll">
                   <a href="#contact">contact</a>
