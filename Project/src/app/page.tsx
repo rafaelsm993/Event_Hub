@@ -1,6 +1,7 @@
 import Search from '@/components/Search'
 
 
+
 export const metadata = {
   title: 'Event Hub',
   description: 'O melhor site para eventos',
@@ -37,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <!--service start--> */}
+      {/* <!--service start----------------------------------------------------------------------------------------------> */}
       <section id="service" className="service">
         <div className="container">
           <div className="section-header">

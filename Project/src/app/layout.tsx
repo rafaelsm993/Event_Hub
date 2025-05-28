@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html className="no-js" lang="en">
       <head>
-        <title>TESTE</title>
+        <title>Event Hub</title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

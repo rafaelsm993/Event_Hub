@@ -18,8 +18,8 @@ export default function Navbar() {
               >
                 <i className="fa fa-bars"></i>
               </button>
-              <a className="navbar-brand" href="index.html">
-                carvilla<span></span>
+              <a className="navbar-brand" href="/">
+                Event hub<span></span>
               </a>
             </div>
             <div
@@ -32,16 +32,16 @@ export default function Navbar() {
                 data-out="fadeOutUp"
               >
                 <li className="scroll active">
-                  <a href="#home">home</a>
+                  <a href="#home">Inicio</a>
                 </li>
                 <li className="scroll">
-                  <a href="#service">service</a>
+                  <a href="#service">Eventos</a>
                 </li>
                 <li className="scroll">
-                  <a href="#new-cars">new cars</a>
+                  <a href="#new-cars">lembranças</a>
                 </li>
                 <li className="scroll">
-                  <a href="#contact">contact</a>
+                  <a href="#contact">contatos</a>
                 </li>
               </ul>
             </div>
