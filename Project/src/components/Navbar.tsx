@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-// import Modal from './Modal'; // Make sure to import the Modal component
+import Modal from './Modal'; // Make sure to import the Modal component
 
 export default function Navbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
