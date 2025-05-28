@@ -1,12 +1,18 @@
 'use client'
 import { useState } from 'react';
-import Modal from './Modal'; // Make sure to import the Modal component
+import Modal from './Modal'; // Existing Modal component
+import SignUp_Form from './SignUp_Form'; // Import the SignUp_Form component
 
 export default function Navbar() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
+  const toggleLoginModal = () => {
+    setIsLoginModalOpen(!isLoginModalOpen);
+  };
+
+  const toggleSignUpForm = () => {
+    setIsSignUpFormOpen(!isSignUpFormOpen);
   };
 
   return (
@@ -55,15 +61,25 @@ export default function Navbar() {
                 </li>
                 <li className="scroll">
                   <a href="#login-modal" data-toggle="modal">
-
-                  <button onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleModal();
-                  }}>
-                    ENTRAR
-                  </button>
-                    </a>
+                    <button onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleLoginModal();
+                    }}>
+                      ENTRAR
+                    </button>
+                  </a>
+                </li>
+                <li className="scroll">
+                  <a href="#signup-form" data-toggle="modal">
+                    <button onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleSignUpForm();
+                    }}>
+                      CRIAR EVENTO
+                    </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -71,7 +87,8 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="clearfix"></div>
-      {isModalOpen && <Modal />}
+      {isLoginModalOpen && <Modal />}
+      {isSignUpFormOpen && <SignUp_Form />}
     </div>
   );
 }

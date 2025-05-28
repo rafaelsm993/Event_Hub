@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const db = require('./db/statements'); // Importa o banco (e garante a criação das tabelas)
+const db = require('./statements'); // Importa o banco (e garante a criação das tabelas)
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
@@ -32,6 +32,28 @@ app.post('/api/usuarios', (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ erro: 'Erro ao inserir usuário' });
+  }
+});
+
+// Rota para inserir um evento
+app.post('/api/eventos', (req, res) => {
+  const { titulo, descricao, data, local, id_organizador } = req.body;
+
+  console.log('Dados do evento recebidos:', { titulo, descricao, data, local, id_organizador });
+
+  try {
+    const stmt = db.prepare(`
+      INSERT INTO eventos (titulo, descricao, data, local, id_organizador)
+      VALUES (?, ?, ?, ?, ?)
+    `);
+    const result = stmt.run(titulo, descricao, data, local, id_organizador);
+
+    console.log('Resultado do insert do evento:', result);
+
+    res.status(201).json({ id: result.lastInsertRowid });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ erro: 'Erro ao inserir evento' });
   }
 });
 
