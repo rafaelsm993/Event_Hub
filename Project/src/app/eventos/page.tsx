@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './css/cards.module.css'; // Import the CSS module
 
+// card - 2 linha - 28
+// card - 9 linha - 132
+// card - 11 linha - 158
+// card - 12 linha - 180
+
 export default function Page() {
     return (
         <>  

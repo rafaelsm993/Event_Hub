@@ -1,5 +1,18 @@
 import Search from '@/components/Search'
 
+
+export const metadata = {
+  title: 'Event Hub',
+  description: 'O melhor site para eventos',
+  OpenGraf: {
+    title: 'Event Hub',
+    description: 'O melhor site para eventos',
+    // images: '/images/logo.png',
+    type: 'website',
+  }
+}
+
+
 export default function Home() {
   return (
     <>
@@ -27,6 +40,9 @@ export default function Home() {
       {/* <!--service start--> */}
       <section id="service" className="service">
         <div className="container">
+          <div className="section-header">
+            <h2>Eventos para compra</h2>
+          </div>
           <div className="service-content">
             <div className="row">
               <div className="col-md-4 col-sm-6">
@@ -71,7 +87,7 @@ export default function Home() {
       <section id="clients-say" className="clients-say">
         <div className="container">
           <div className="section-header">
-            <h2>Nossos maiores eventos</h2>
+            <h2>Eventos anteriores</h2>
           </div>
           <div className="row">
             <div className="owl-carousel testimonial-carousel">
@@ -144,8 +160,8 @@ export default function Home() {
       <section id="new-cars" className="new-cars">
         <div className="container">
           <div className="section-header">
-            <p>checkout <span>the</span> latest cars</p>
-            <h2>newest cars</h2>
+            <p>verifique <span>aqui</span> os nossos</p>
+            <h2>maiores eventos</h2>
           </div>
           <div className="new-cars-content">
             <div className="owl-carousel owl-theme" id="new-cars-carousel">
