@@ -6,16 +6,15 @@ export default function Home() {
       <section id="home" className="welcome-hero">
         <div className="container">
           <div className="welcome-hero-txt">
-            <h2>get your desired car in reasonable price</h2>
+            <h2>faça seu evento conosco</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Nos da Event Hub estamos aqui para te ajudar a fazer seu evento da melhor forma
             </p>
             <button
               className="welcome-btn animated fadeInDown"
               style={{ opacity: 0 }}
             >
-              contact us
+              Crie seu evento
             </button>
           </div>
         </div>
@@ -33,6 +32,9 @@ export default function Home() {
                 <div className="single-service-item">
                   <div className="single-service-icon">
                     <i className="flaticon-car"></i>
+                  <div className="section-header">
+                    <h2>Eventos em aberto</h2>
+                  </div>
                   </div>
                   <h2><a href="#">largest dealership <span> of</span> car</a></h2>
                   <p>
@@ -71,7 +73,7 @@ export default function Home() {
       <section id="clients-say" className="clients-say">
         <div className="container">
           <div className="section-header">
-            <h2>what our clients say</h2>
+            <h2>Eventos anteriores</h2>
           </div>
           <div className="row">
             <div className="owl-carousel testimonial-carousel">
@@ -85,12 +87,13 @@ export default function Home() {
                     </div>
                     <div className="testimonial-comment">
                       <p>
-                        Sed ut pers unde omnis iste natus error sit voluptatem accusantium dolor laudan rem aperiam, eaque ipsa quae ab illo inventore verit. 
+                        Festa de israel rodolfo no hopi hari, patrocinio da germania com acesso ao parque
+                        dia 25 de maios 2025
                       </p>
                     </div>
                     <div className="testimonial-person">
-                      <h2><a href="#">tomas lili</a></h2>
-                      <h4>new york</h4>
+                      <h2><a href="#">Hopi hari</a></h2>
+                      <h4>vinhedo</h4>
                     </div>
                   </div>
                 </div>
@@ -105,12 +108,12 @@ export default function Home() {
                     </div>
                     <div className="testimonial-comment">
                       <p>
-                        Sed ut pers unde omnis iste natus error sit voluptatem accusantium dolor laudan rem aperiam, eaque ipsa quae ab illo inventore verit. 
+                        Travis Scott, Katy Perry, Imagine Dragons e Ivete Sangalo encantam multidões com shows vibrantes, repertório envolvente e experiências musicais inesquecíveis.
                       </p>
                     </div>
                     <div className="testimonial-person">
-                      <h2><a href="#">romi rain</a></h2>
-                      <h4>london</h4>
+                      <h2><a href="#">rock in rio</a></h2>
+                      <h4>rio de janeiro</h4>
                     </div>
                   </div>
                 </div>
@@ -125,12 +128,12 @@ export default function Home() {
                     </div>
                     <div className="testimonial-comment">
                       <p>
-                        Sed ut pers unde omnis iste natus error sit voluptatem accusantium dolor laudan rem aperiam, eaque ipsa quae ab illo inventore verit. 
+                        Katy Perry, Mariah Carey, Green Day, Camila Cabello, Ivete Sangalo e Ludmilla protagonizam shows inesquecíveis no The Town, unindo estilos diversos, energia contagiante e experiências emocionantes para públicos variados. 
                       </p>
                     </div>
                     <div className="testimonial-person">
-                      <h2><a href="#">john doe</a></h2>
-                      <h4>washington</h4>
+                      <h2><a href="#">The town</a></h2>
+                      <h4>São paulo</h4>
                     </div>
                   </div>
                 </div>
@@ -144,8 +147,8 @@ export default function Home() {
       <section id="new-cars" className="new-cars">
         <div className="container">
           <div className="section-header">
-            <p>checkout <span>the</span> latest cars</p>
-            <h2>newest cars</h2>
+            <p>verifique <span>aqui</span> os nossos</p>
+            <h2>Melhores eventos</h2>
           </div>
           <div className="new-cars-content">
             <div className="owl-carousel owl-theme" id="new-cars-carousel">
@@ -159,15 +162,15 @@ export default function Home() {
                     </div>
                     <div className="col-md-5 col-sm-12">
                       <div className="new-cars-txt">
-                        <h2><a href="#">chevrolet camaro <span> za100</span></a></h2>
+                        <h2><a href="#">Moonlight <span> Eletronico</span></a></h2>
                         <p>
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                          O Moonlight Festival é um evento de música eletrônica que ocorre anualmente no estado de São Paulo, Brasil. Em 2025, o festival realizou sua 4ª edição no dia 12 de abril, no Hotel Estância Nazaré Paulista. Com uma estrutura aprimorada, o evento ofereceu uma experiência exclusiva para até 4 mil participantes, destacando-se por sua atmosfera intimista e foco na conexão entre os presentes. O line-up contou com artistas renomados como Shtuby, All in One, Altruism e Headroom, proporcionando uma sonoridade diversificada e envolvente. 
                         </p>
                         <p className="new-cars-para2">
-                          Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
+                          Além da música, o Moonlight Festival é reconhecido por sua cenografia imersiva e temática inspirada na Lua Nova, simbolizando novos começos e transformações. A edição de 2025 reforçou a identidade do evento como um espaço de união, amizade e momentos inesquecíveis, oferecendo também opções de hospedagem no local para maior conforto dos participantes. Com ingressos limitados e uma proposta diferenciada, o festival se consolida como uma das experiências mais aguardadas no calendário da música eletrônica brasileira.
                         </p>
                         <button className="welcome-btn new-cars-btn">
-                          view details
+                          ver mais
                         </button>
                       </div>
                     </div>
@@ -184,15 +187,15 @@ export default function Home() {
                     </div>
                     <div className="col-md-5 col-sm-12">
                       <div className="new-cars-txt">
-                        <h2><a href="#">BMW series-3 wagon</a></h2>
+                        <h2><a href="#">Baile do Nego Trufa: Ritmo e Energia no Varandas Bar</a></h2>
                         <p>
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                          O Baile do Nego Trufa é um evento que promete agitar a noite paulistana com muito funk e animação. Com MC Nego Trufa como atração principal, o show é conhecido por sua energia contagiante e repertório envolvente, conquistando fãs por onde passa. O evento é voltado para o público adulto, com classificação etária de 18 anos, e oferece uma experiência única para os amantes do gênero.  
                         </p>
                         <p className="new-cars-para2">
-                          Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
+                          O Varandas Bar, localizado no bairro do Tatuapé em São Paulo, é o palco escolhido para essa festa imperdível. O local, conhecido por sua estrutura moderna e ambiente acolhedor, proporciona o cenário ideal para uma noite de muita música e diversão. Com ingressos acessíveis, o Baile do Nego Trufa no Varandas Bar é uma excelente opção para quem busca entretenimento de qualidade na capital paulista.
                         </p>
                         <button className="welcome-btn new-cars-btn">
-                          view details
+                          ver mais
                         </button>
                       </div>
                     </div>
@@ -209,15 +212,15 @@ export default function Home() {
                     </div>
                     <div className="col-md-5 col-sm-12">
                       <div className="new-cars-txt">
-                        <h2><a href="#">ferrari 488 superfast</a></h2>
+                        <h2><a href="#">Sunlight Festival: A Resistência da Fênix Brilha em São Paulo</a></h2>
                         <p>
-                          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                          O Sunlight Festival é um dos eventos mais aguardados da cena psytrance no Brasil, e sua edição de 2024 foi marcada por uma atmosfera de renascimento e superação. Realizado nos dias 6 e 7 de julho no UM33 Club, em Caçapava (SP), o festival adotou o tema "A Resistência da Fênix", simbolizando a resiliência e a paixão da comunidade eletrônica. Com mais de 20 atrações nacionais e internacionais, o lineup contou com nomes como Avalon, Talamasca, Sesto Sento, Vermont e Agneton, proporcionando uma experiência sonora intensa e diversificada. 
                         </p>
                         <p className="new-cars-para2">
-                          Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. 
+                          Além da música, o festival ofereceu uma estrutura completa com áreas de camping, cenografia temática e espaços de convivência, reforçando seu compromisso com a imersão e o bem-estar dos participantes. A edição de 2024 consolidou o Sunlight Festival como um evento que vai além da música, celebrando a união, a arte e a transformação pessoal, elementos que continuam a atrair e inspirar seu público fiel.
                         </p>
                         <button className="welcome-btn new-cars-btn">
-                          view details
+                          ver mais
                         </button>
                       </div>
                     </div>
