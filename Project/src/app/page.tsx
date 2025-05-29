@@ -42,7 +42,7 @@ export default function Home() {
                   
                   <h2><a href="#">Praticidade</a></h2>
                   <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
+                    Tudo o que você precisa em um só lugar, de forma rápida e fácil.
                   </p>
                 </div>
               </div>
@@ -53,7 +53,7 @@ export default function Home() {
                   </div>
                   <h2><a href="#">Segurança</a></h2>
                   <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
+                    Seus dados e informações protegidos com total confiança.  
                   </p>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function Home() {
                   </div>
                   <h2><a href="#">Garantia</a></h2>
                   <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. 
+                    Serviço garantido ou seu dinheiro de volta, sem complicações. 
                   </p>
                 </div>
               </div>

@@ -1,6 +1,8 @@
 //server.js
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcrypt')
+
 const app = express();
 const db = require('./statements'); // Importa o banco (e garante a criação das tabelas)
 
@@ -8,7 +10,7 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
 // Rota para inserir um usuário
-app.post('/api/usuarios', (req, res) => {
+app.post('/api/usuarios', async (req, res) => {
   let { nome, email, senha, tipo, cpf, cnpj, isCNPJ } = req.body;
 
   console.log('Dados recebidos:', { nome, email, senha, tipo, cpf, cnpj, isCNPJ });
@@ -20,11 +22,13 @@ app.post('/api/usuarios', (req, res) => {
   isCNPJ = isCNPJ ? 1 : 0;
 
   try {
+    const senhaHash = await bcrypt.hash(senha, 10);
+
     const stmt = db.prepare(`
       INSERT INTO usuarios (nome, email, senha, tipo, cpf, cnpj, isCNPJ)
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
-    const result = stmt.run(nome, email, senha, tipo, cpf, cnpj, isCNPJ);
+    const result = stmt.run(nome, email, senhaHash, tipo, cpf, cnpj, isCNPJ);
 
     console.log('Resultado do insert:', result);
 
