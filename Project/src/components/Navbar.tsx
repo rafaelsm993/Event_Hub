@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
-import Modal from './Modal'; // Existing Modal component
-import SignUp_Form from './SignUp_Form'; // Import the SignUp_Form component
+import Modal from './Cadastro'; // Existing Modal component
+import SignUp_Form from './CriarEvento'; // Import the SignUp_Form component
 import LoginForm from './LoginForm'; // Import the LoginForm component'
 
 export default function Navbar() {
@@ -103,10 +103,12 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="clearfix"></div>
-      {isLoginModalOpen && <Modal />}
-      {isSignUpFormOpen && <SignUp_Form />}
-      {isLoginFormOpen && <LoginForm />}
-      
+      {isLoginModalOpen && (
+        <Modal isVisible={true} onClose={() => setIsLoginModalOpen(false)} />)}
+      {isSignUpFormOpen && (
+        <SignUp_Form isVisible={true} onClose={() => setIsSignUpFormOpen(false)} />)}
+      {isLoginFormOpen && (
+        <LoginForm isVisible={true} onClose={() => setIsLoginFormOpen(false)} />)}
     </div>
   );
 }
