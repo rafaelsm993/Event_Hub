@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import Modal from './Modal'; // Existing Modal component
 import SignUp_Form from './SignUp_Form'; // Import the SignUp_Form component
+import LoginForm from './LoginForm'; // Import the LoginForm component'
 
 export default function Navbar() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
+  const [isLoginFormOpen, setIsLoginFormOpen] = useState(false);
 
   const toggleLoginModal = () => {
     setIsLoginModalOpen(!isLoginModalOpen);
@@ -13,6 +15,9 @@ export default function Navbar() {
 
   const toggleSignUpForm = () => {
     setIsSignUpFormOpen(!isSignUpFormOpen);
+  };
+  const toggleLoginModalOpen = () => {
+    setIsLoginFormOpen(!isLoginFormOpen);
   };
 
   return (
@@ -81,6 +86,17 @@ export default function Navbar() {
                     </button>
                   </a>
                 </li>
+                <li className="scroll">
+                  <a href="#signup-form" data-toggle="modal">
+                    <button onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleLoginModalOpen();
+                    }}>
+                      LOGIN
+                    </button>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -89,6 +105,8 @@ export default function Navbar() {
       <div className="clearfix"></div>
       {isLoginModalOpen && <Modal />}
       {isSignUpFormOpen && <SignUp_Form />}
+      {isLoginFormOpen && <LoginForm />}
+      
     </div>
   );
 }
