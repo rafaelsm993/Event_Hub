@@ -7,7 +7,7 @@ export default function Footer() {
                         <div className="col-md-3 col-sm-6">
                             <div className="single-footer-widget">
                                 <div className="footer-logo">
-                                    <a href="index.html" aria-label="Carvilla Home">Carvilla</a>
+                                    <a href="index.html" aria-label="Carvilla Home">Eventhub</a>
                                 </div>
                                 <p>
                                     Ased do eiusm tempor incidi ut labore et dolore magnaian aliqua. Ut
@@ -32,26 +32,26 @@ export default function Footer() {
                         </div>
                         <div className="col-md-3 col-xs-12">
                             <div className="single-footer-widget">
-                                <h2>Top Brands</h2>
+                                <h2>Maiores clientes</h2>
                                 <div className="row">
                                     <div className="col-md-7 col-xs-6">
                                         <ul>
-                                            <li><a href="#">BMW</a></li>
-                                            <li><a href="#">Lamborghini</a></li>
-                                            <li><a href="#">Camaro</a></li>
-                                            <li><a href="#">Audi</a></li>
-                                            <li><a href="#">Infiniti</a></li>
-                                            <li><a href="#">Nissan</a></li>
+                                            <li><a href="#">180 Ubatuba</a></li>
+                                            <li><a href="#">Hopi Hari</a></li>
+                                            <li><a href="#">Varandas</a></li>
+                                            <li><a href="#">Rock in Rio</a></li>
+                                            <li><a href="#">Sunlight festival</a></li>
+                                            <li><a href="#">Kalahari</a></li>
                                         </ul>
                                     </div>
                                     <div className="col-md-5 col-xs-6">
                                         <ul>
-                                            <li><a href="#">Ferrari</a></li>
-                                            <li><a href="#">Porsche</a></li>
-                                            <li><a href="#">Land Rover</a></li>
-                                            <li><a href="#">Aston Martin</a></li>
-                                            <li><a href="#">Mercedes</a></li>
-                                            <li><a href="#">Opel</a></li>
+                                            <li><a href="#">Burning Man</a></li>
+                                            <li><a href="#">Mutley Bar</a></li>
+                                            <li><a href="#">CDG Beer</a></li>
+                                            <li><a href="#">Kapadokya Baloons</a></li>
+                                            <li><a href="#">The Town</a></li>
+                                            <li><a href="#">Tomorrowland</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -34,8 +34,8 @@ export default function Navbar() {
               >
                 <i className="fa fa-bars"></i>
               </button>
-              <a className="navbar-brand" href="index.html">
-                carvilla<span></span>
+              <a className="navbar-brand" href="/">
+                EVENT HUB<span></span>
               </a>
             </div>
             <div
@@ -48,16 +48,16 @@ export default function Navbar() {
                 data-out="fadeOutUp"
               >
                 <li className="scroll active">
-                  <a href="#home">home</a>
+                  <a href="#home">INICIO</a>
                 </li>
                 <li className="scroll">
-                  <a href="#service">service</a>
+                  <a href="#service">EVENTOS</a>
                 </li>
                 <li className="scroll">
-                  <a href="#new-cars">new cars</a>
+                  <a href="#new-cars">FEEDBACK</a>
                 </li>
                 <li className="scroll">
-                  <a href="#contact">contact</a>
+                  <a href="#contact">CONTATO</a>
                 </li>
                 <li className="scroll">
                   <a href="#login-modal" data-toggle="modal">
@@ -66,7 +66,7 @@ export default function Navbar() {
                       e.stopPropagation();
                       toggleLoginModal();
                     }}>
-                      ENTRAR
+                      CADASTRO
                     </button>
                   </a>
                 </li>

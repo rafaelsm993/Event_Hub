@@ -24,19 +24,23 @@ export default function Home() {
       </section>
 
       {/* <!--service start--> */}
+      
       <section id="service" className="service">
+        <div className="section-header">
+            <h2>Eventos Abertos</h2>
+          </div>
         <div className="container">
           <div className="service-content">
             <div className="row">
               <div className="col-md-4 col-sm-6">
                 <div className="single-service-item">
                   <div className="single-service-icon">
-                    <i className="flaticon-car"></i>
+                    {/* <i className="flaticon-car"></i> */}
                   <div className="section-header">
-                    <h2>Eventos em aberto</h2>
                   </div>
                   </div>
-                  <h2><a href="#">largest dealership <span> of</span> car</a></h2>
+                  
+                  <h2><a href="#">Praticidade</a></h2>
                   <p>
                     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
                   </p>
@@ -45,9 +49,9 @@ export default function Home() {
               <div className="col-md-4 col-sm-6">
                 <div className="single-service-item">
                   <div className="single-service-icon">
-                    <i className="flaticon-car-repair"></i>
+                    {/* <i className="flaticon-car-repair"></i> */}
                   </div>
-                  <h2><a href="#">unlimited repair warrenty</a></h2>
+                  <h2><a href="#">Segurança</a></h2>
                   <p>
                     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia.  
                   </p>
@@ -56,9 +60,9 @@ export default function Home() {
               <div className="col-md-4 col-sm-6">
                 <div className="single-service-item">
                   <div className="single-service-icon">
-                    <i className="flaticon-car-1"></i>
+                    {/* <i className="flaticon-car-1"></i> */}
                   </div>
-                  <h2><a href="#">insurence support</a></h2>
+                  <h2><a href="#">Garantia</a></h2>
                   <p>
                     Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut den fugit sed quia. 
                   </p>
@@ -73,7 +77,7 @@ export default function Home() {
       <section id="clients-say" className="clients-say">
         <div className="container">
           <div className="section-header">
-            <h2>Eventos anteriores</h2>
+            <h2>Nossa Equipe</h2>
           </div>
           <div className="row">
             <div className="owl-carousel testimonial-carousel">
@@ -82,18 +86,17 @@ export default function Home() {
                   <div className="testimonial-description">
                     <div className="testimonial-info">
                       <div className="testimonial-img">
-                        <img src="/images/clients/c1.png" alt="image of clients person" />
+                        <img src="/images/clients/c1.jpg" alt="image of clients person" />
                       </div>
                     </div>
                     <div className="testimonial-comment">
                       <p>
-                        Festa de israel rodolfo no hopi hari, patrocinio da germania com acesso ao parque
-                        dia 25 de maios 2025
+                        Rafael Siqueira
                       </p>
                     </div>
                     <div className="testimonial-person">
-                      <h2><a href="#">Hopi hari</a></h2>
-                      <h4>vinhedo</h4>
+                      <h2><a href="#">Desenvolvedor</a></h2>
+                      <h4>FullStack</h4>
                     </div>
                   </div>
                 </div>
@@ -103,17 +106,17 @@ export default function Home() {
                   <div className="testimonial-description">
                     <div className="testimonial-info">
                       <div className="testimonial-img">
-                        <img src="/images/clients/c2.png" alt="image of clients person" />
+                        <img src="/images/clients/c2.jpg" alt="image of clients person" />
                       </div>
                     </div>
                     <div className="testimonial-comment">
                       <p>
-                        Travis Scott, Katy Perry, Imagine Dragons e Ivete Sangalo encantam multidões com shows vibrantes, repertório envolvente e experiências musicais inesquecíveis.
+                        Henrique de Paula
                       </p>
                     </div>
                     <div className="testimonial-person">
-                      <h2><a href="#">rock in rio</a></h2>
-                      <h4>rio de janeiro</h4>
+                      <h2><a href="#">Desenvolvedor</a></h2>
+                      <h4>Backend</h4>
                     </div>
                   </div>
                 </div>
@@ -123,17 +126,37 @@ export default function Home() {
                   <div className="testimonial-description">
                     <div className="testimonial-info">
                       <div className="testimonial-img">
-                        <img src="/images/clients/c3.png" alt="image of clients person" />
+                        <img src="/images/clients/c3.jpg" alt="image of clients person" />
                       </div>
                     </div>
                     <div className="testimonial-comment">
                       <p>
-                        Katy Perry, Mariah Carey, Green Day, Camila Cabello, Ivete Sangalo e Ludmilla protagonizam shows inesquecíveis no The Town, unindo estilos diversos, energia contagiante e experiências emocionantes para públicos variados. 
+                        Diogo Lupianhe
                       </p>
                     </div>
                     <div className="testimonial-person">
-                      <h2><a href="#">The town</a></h2>
-                      <h4>São paulo</h4>
+                      <h2><a href="#">Desenvolvedor</a></h2>
+                      <h4>Front-End</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm-3 col-xs-12">
+                <div className="single-testimonial-box">
+                  <div className="testimonial-description">
+                    <div className="testimonial-info">
+                      <div className="testimonial-img">
+                        <img src="/images/clients/c4.jpg" alt="image of clients person" />
+                      </div>
+                    </div>
+                    <div className="testimonial-comment">
+                      <p>
+                        Caua Ferraz
+                      </p>
+                    </div>
+                    <div className="testimonial-person">
+                      <h2><a href="#">Desenvolvedor</a></h2>
+                      <h4>Backend</h4>
                     </div>
                   </div>
                 </div>
