@@ -1,8 +1,12 @@
 import Search from '@/components/Search'
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
+    <div className="wrapper">
+        <Navbar />
       <section id="home" className="welcome-hero">
         <div className="container">
           <div className="welcome-hero-txt">
@@ -253,7 +257,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
       </section>
+      <Footer />
+      </div>
     </>
   )
 }

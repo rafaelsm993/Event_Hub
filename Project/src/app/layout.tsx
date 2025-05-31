@@ -1,5 +1,5 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+//import Navbar from "@/components/Navbar";
+//import Footer from "@/components/Footer";
 import Script from 'next/script'
 
 export default function RootLayout({
@@ -40,10 +40,8 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/responsive.css" />
       </head>
       <body cz-shortcut-listen="true">
-      <div className="wrapper">
-        <Navbar />
+      <div>
         {children}
-        <Footer />
       </div>
         
         {/* Load jQuery first */}
