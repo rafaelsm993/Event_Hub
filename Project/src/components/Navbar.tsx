@@ -1,24 +1,10 @@
-'use client'
-import { useState } from 'react';
-import Modal from './Cadastro'; // Existing Modal component
-import SignUp_Form from './CriarEvento'; // Import the SignUp_Form component
-import LoginForm from './LoginForm'; // Import the LoginForm component'
+'use client';
+import Link from "next/link";
+import { useAuth } from '../app/context/AuthContext'; 
 
 export default function Navbar() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const [isSignUpFormOpen, setIsSignUpFormOpen] = useState(false);
-  const [isLoginFormOpen, setIsLoginFormOpen] = useState(false);
-
-  const toggleLoginModal = () => {
-    setIsLoginModalOpen(!isLoginModalOpen);
-  };
-
-  const toggleSignUpForm = () => {
-    setIsSignUpFormOpen(!isSignUpFormOpen);
-  };
-  const toggleLoginModalOpen = () => {
-    setIsLoginFormOpen(!isLoginFormOpen);
-  };
+  const { isLoggedIn } = useAuth();
+  console.log('Is Logged In:', isLoggedIn);
 
   return (
     <div className="top-area">
@@ -64,51 +50,17 @@ export default function Navbar() {
                 <li className="scroll">
                   <a href="#contact">CONTATO</a>
                 </li>
-                <li className="scroll">
-                  <a href="#login-modal" data-toggle="modal">
-                    <button onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      toggleLoginModal();
-                    }}>
-                      CADASTRO
-                    </button>
-                  </a>
-                </li>
-                <li className="scroll">
-                  <a href="#signup-form" data-toggle="modal">
-                    <button onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      toggleSignUpForm();
-                    }}>
-                      CRIAR EVENTO
-                    </button>
-                  </a>
-                </li>
-                <li className="scroll">
-                  <a href="#signup-form" data-toggle="modal">
-                    <button onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      toggleLoginModalOpen();
-                    }}>
-                      LOGIN
-                    </button>
-                  </a>
-                </li>
+                  {!isLoggedIn && (
+                    <li >
+                      <Link href="/login">ENTRAR</Link>
+                    </li>
+                  )}
               </ul>
-            </div>
+             </div>
           </div>
         </nav>
       </div>
       <div className="clearfix"></div>
-      {isLoginModalOpen && (
-        <Modal isVisible={true} onClose={() => setIsLoginModalOpen(false)} />)}
-      {isSignUpFormOpen && (
-        <SignUp_Form isVisible={true} onClose={() => setIsSignUpFormOpen(false)} />)}
-      {isLoginFormOpen && (
-        <LoginForm isVisible={true} onClose={() => setIsLoginFormOpen(false)} />)}
     </div>
   );
 }

@@ -1,11 +1,13 @@
 'use client';
 import { useState } from 'react';
-import Head from 'next/head';
 import { useRouter } from 'next/navigation';
+import Head from 'next/head';
+import { useAuth } from '../context/AuthContext'; // Adjust the path as necessary
 
-export default function LoginForm() {
+export default function SignUp() {
   const [formData, setFormData] = useState({ email: '', senha: '' });
   const router = useRouter();
+  const { login } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -13,28 +15,31 @@ export default function LoginForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    const response = await fetch('http://localhost:3001/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3001/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
 
-    if (!response.ok) throw new Error('Login failed');
+      if (!response.ok) throw new Error('Login failed');
 
-    const result = await response.json();
-    console.log('Usuário autenticado:', result);
+      const result = await response.json();
+      console.log('Usuário autenticado:', result);
 
-    // 👉 Salva o usuário no localStorage
-    localStorage.setItem('usuario', JSON.stringify(result));
+      // Save the user in localStorage
+      localStorage.setItem('usuario', JSON.stringify(result));
 
-    // 👉 Redireciona após login
-    router.push('/');
-  } catch (error) {
-    alert('Erro ao fazer login');
-  }
-};
+      // Update the context state
+      login();
+
+      // Redirect after login
+      router.push('/');
+    } catch (error) {
+      alert('Erro ao fazer login');
+    }
+  };
 
   return (
     <>

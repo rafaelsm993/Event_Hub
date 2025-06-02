@@ -1,6 +1,6 @@
-//import Navbar from "@/components/Navbar";
-//import Footer from "@/components/Footer";
+'use client'
 import Script from 'next/script'
+import { AuthProvider } from './context/AuthContext'; 
 
 export default function RootLayout({
   children,
@@ -40,9 +40,11 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/responsive.css" />
       </head>
       <body cz-shortcut-listen="true">
-      <div>
-        {children}
-      </div>
+        <AuthProvider>
+          <div>
+            {children}
+          </div>
+        </AuthProvider>
         
         {/* Load jQuery first */}
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" strategy="beforeInteractive" />
