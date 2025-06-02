@@ -10,8 +10,7 @@ export default function Footer() {
                                     <a href="index.html" aria-label="Carvilla Home">Eventhub</a>
                                 </div>
                                 <p>
-                                    Ased do eiusm tempor incidi ut labore et dolore magnaian aliqua. Ut
-                                    enim ad minim veniam.
+                                    Event Hub cria experiências únicas com dedicação e alegria. Transformamos cada momento em celebração.
                                 </p>
                                 <div className="footer-contact">
                                     <p>Email: <span>info@themesine.com</span></p>
@@ -59,10 +58,10 @@ export default function Footer() {
                         </div>
                         <div className="col-md-offset-1 col-md-3 col-sm-6">
                             <div className="single-footer-widget">
-                                <h2>Newsletter</h2>
+                                <h2>Novidades</h2>
                                 <div className="footer-newsletter">
                                     <p>
-                                        Subscribe to get the latest news updates and information.
+                                        Assine para receber as últimas novidades e informações da Event Hub.
                                     </p>
                                 </div>
                                 <div className="hm-foot-email">
