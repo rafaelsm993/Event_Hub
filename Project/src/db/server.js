@@ -73,14 +73,14 @@ app.get('/eventos', (req, res) => {
 });
 
 // Rota para inserir um evento
-app.post('/api/eventos', (req, res) => {
-  const { titulo, descricao, data, local, id_organizador } = req.body;
+app.post('/api/Criar_evento', (req, res) => {
+  const { titulo, descricao, data, local, foto, id_organizador } = req.body;
 
-  console.log('Dados do evento recebidos:', { titulo, descricao, data, local, id_organizador });
+  console.log('Dados do evento recebidos:', { titulo, descricao, data, local, foto, id_organizador });
 
   const stmt = db.prepare(`
-    INSERT INTO eventos (titulo, descricao, data, local, id_organizador)
-    VALUES (?, ?, ?, ?, ?)
+    INSERT INTO eventos (titulo, descricao, data, local, foto, id_organizador)
+    VALUES (?, ?, ?, ?, ?, ?)
   `);
   stmt.run(titulo, descricao, data, local, id_organizador, function(err) {
     if (err) {

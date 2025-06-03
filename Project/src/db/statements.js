@@ -22,7 +22,7 @@ const createTables = () => {
           descricao TEXT,
           data DATE,
           local TEXT NOT NULL,
-          foto TEXT,
+          foto BLOB,
           id_organizador INTEGER NOT NULL,
           FOREIGN KEY (id_organizador) REFERENCES usuarios(id_usuario)
         )`,
@@ -39,11 +39,11 @@ const createTables = () => {
     
         `CREATE TABLE IF NOT EXISTS foto (
           id_foto INTEGER PRIMARY KEY AUTOINCREMENT,
-          url TEXT NOT NULL,
-          descricao_foto TEXT,
+          imagem BLOB NOT NULL,
           id_evento INTEGER NOT NULL,
           FOREIGN KEY (id_evento) REFERENCES eventos(id_evento)
-        )`
+        )`,
+        
       ];
     
       for (const sql of tables) {
