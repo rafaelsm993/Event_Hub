@@ -1,15 +1,64 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import styles from './css/cards.module.css'; // Import the CSS module
+import { useSearchParams } from 'next/navigation';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+// Define the type for an event object
+interface Evento {
+    id_evento: number;
+    titulo: string;
+    descricao: string;
+    data: string;
+    local: string;
+    foto: string | null;
+    id_organizador: number;
+}
 
 export default function Page() {
+    const [eventos, setEventos] = useState<Evento[]>([]);
+    const searchParams = useSearchParams();
+    const nome = searchParams.get('name');
+
+    useEffect(() => {
+        if (!nome) return;
+
+        // Fetch the events from the server
+        fetch(`http://localhost:3001/eventos?name=${encodeURIComponent(nome)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setEventos(data);
+                } else {
+                    console.error('Unexpected response format:', data);
+                    setEventos([]);
+                }
+            })
+            .catch(error => console.error('Erro ao buscar eventos:', error));
+    }, [nome]);
+
     return (
         <>  
+        <Navbar />
             {/* <!-- Content--> */}
             <div className={styles.container}>
                 {/* <!-- Card columns--> */}
                 <div className={styles['card-columns']}>
+                    {/* Render dynamically fetched event cards */}
+                    {eventos.map(evento => (
+                        <div key={evento.id_evento} className={`${styles.card} ${styles['text-white']} ${styles['border-0']}`}>
+                            <div className={`${styles['card-img-overlay']} ${styles['--card-img-overlay-purple']} ${styles['d-flex']} ${styles['flex-column']} ${styles['justify-content-between']} ${styles['align-items-start']} ${styles['p-5']}`}>
+                                <div className={`${styles.h2} ${styles['mb-2']}`}>
+                                    <a className={`${styles['text-white']} ${styles['text-decoration-none']}`} href="#">{evento.titulo}</a>
+                                </div>
+                                <span className={`${styles['badge-warning2']} ${styles['text-uppercase']}`}>{new Date(evento.data).toLocaleDateString()}</span>
+                            </div>
+                        </div>
+                    ))}
 
-                    {/* <!-- Card 1 --> */}
+                    {/* Render static cards */}
+                    {/* Card 1 */}
                     <div className={`${styles.card} ${styles['text-white']} ${styles['border-0']}`}>
                         <div className={`${styles['card-img-overlay']} ${styles['--card-img-overlay-purple']} ${styles['d-flex']} ${styles['flex-column']} ${styles['justify-content-between']} ${styles['align-items-start']} ${styles['p-5']}`}>
                             <div className={`${styles.h2} ${styles['mb-2']}`}>
@@ -19,7 +68,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 2 --> */}
+                    {/* Card 2 */}
                     <div className={`${styles.card} ${styles['border-0']}`}>
                         <div className={`${styles['position-relative']} ${styles['text-white']}`}>
                             <div className={`${styles['card-img-overlay']} ${styles.three}`}>
@@ -50,7 +99,8 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 3 --> */}
+                    {/* Add more static cards here as needed */}
+                    {/* Card 3 */}
                     <div className={`${styles.card} ${styles['text-white']} ${styles['border-0']}`}>
                         <div className={`${styles['card-img-overlay']} ${styles['--card-img-overlay-purple']} ${styles['d-flex']} ${styles['flex-column']} ${styles['justify-content-between']} ${styles['align-items-start']} ${styles['p-5']} ${styles.four}`}></div>
                         <div className={`${styles['card-img-overlay']} ${styles['card-overlay-black']} ${styles['hover-light']} ${styles['d-flex']} ${styles['flex-column']} ${styles['justify-content-between']} ${styles['align-items-start']}`}>
@@ -67,7 +117,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 4 --> */}
+                    {/* Card 4 */}
                     <div className={`${styles.card} ${styles['text-center']} ${styles['border-0']}`}>
                         <div className={styles['card-body']}>
                             <div className={`${styles['card-card-avatar']} ${styles['mb-4']}`}>
@@ -84,7 +134,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 5 --> */}
+                    {/* Card 5 */}
                     <div className={`${styles.card} ${styles['bg-primary']} ${styles['text-white']} ${styles['text-center']} ${styles['p-4']} ${styles['border-0']} ${styles.two}`}>
                         <blockquote className={`${styles.blockquote} ${styles['mb-0']}`}>
                             <p className={styles['mb-0']}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
@@ -92,7 +142,7 @@ export default function Page() {
                         </blockquote>
                     </div>
 
-                    {/* <!-- Card 6 --> */}
+                    {/* Card 6 */}
                     <div className={`${styles.card} ${styles['text-center']} ${styles['border-0']} ${styles['mb-4']}`}>
                         <div className={`${styles['card-cup']} ${styles['bg-primary']}`}></div>
                         <div className={`${styles['card-body']} ${styles.proavatar}`}>
@@ -107,7 +157,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 7 --> */}
+                    {/* Card 7 */}
                     <div className={`${styles.card} ${styles['bg-primary']} ${styles['text-white']} ${styles['text-center']} ${styles['p-4']} ${styles['border-0']}`}>
                         <blockquote className={`${styles.blockquote} ${styles['mb-0']}`}>
                             <p className={styles['mb-0']}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
@@ -115,7 +165,7 @@ export default function Page() {
                         </blockquote>
                     </div>
 
-                    {/* <!-- Card 8 --> */}
+                    {/* Card 8 */}
                     <div className={`${styles.card} ${styles['bg-secondary']} ${styles.two} ${styles['text-white']} ${styles['p-4']} ${styles['border-0']}`}>
                         <hr className={styles['hr-tag']}/>
                         <div className={`${styles.container} ${styles.incard}`}>
@@ -124,7 +174,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 9 --> */}
+                    {/* Card 9 */}
                     <div className={`${styles.card} ${styles['border-0']} ${styles.three}`}>
                         <div className={styles['position-relative']}>
                             <div className={`${styles['card-img-overlay']} ${styles.two}`}><span className={`${styles.badge} ${styles['badge-light']} ${styles['text-uppercase']}`}>FASHION</span></div>
@@ -146,7 +196,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 10 --> */}
+                    {/* Card 10 */}
                     <div className={`${styles.card} ${styles['bg-secondary']} ${styles.two} ${styles['text-white']} ${styles['p-4']} ${styles['border-0']}`}>
                         <hr className={styles['hr-tag']}/>
                         <div className={`${styles.container} ${styles.incard}`}>
@@ -155,7 +205,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 11 --> */}
+                    {/* Card 11 */}
                     <div className={`${styles.card} ${styles['text-white']} ${styles['border-0']}`}>
                         <div className={`${styles['card-img-overlay']} ${styles['--card-img-overlay-purple']} ${styles['d-flex']} ${styles['flex-column']} ${styles['justify-content-between']} ${styles['align-items-start']} ${styles['p-5']} ${styles.three}`}></div>
                         <div className={`${styles['card-img-overlay']} ${styles['card-overlay-black']} ${styles['hover-light']} ${styles['d-flex']} ${styles['flex-column']} ${styles['justify-content-between']} ${styles['align-items-start']}`}>
@@ -172,7 +222,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 12 --> */}
+                    {/* Card 12 */}
                     <div className={`${styles.card} ${styles['border-0']} ${styles.wtab}`}>
                         <div className={`${styles['card-body']} ${styles.three}`}>
                             <small className={styles['text-muted']}>This is my tag</small>
@@ -191,7 +241,7 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 13 --> */}
+                    {/* Card 13 */}
                     <div className={`${styles.card} ${styles['border-0']}`}>
                         <div className={styles['position-relative']}></div>
                         <div className={styles['card-body']}>
@@ -211,10 +261,12 @@ export default function Page() {
                         </div>
                     </div>
 
-                    {/* <!-- Card 14 --> */}
+                    {/* Card 14 */}
                     <div className={`${styles.card} ${styles['bg-primary']} ${styles['text-white']} ${styles['text-center']} ${styles['p-4']} ${styles['border-0']} ${styles.four}`}></div>
                 </div>
             </div>
+                  <Footer />
+            
         </>
     );
 }

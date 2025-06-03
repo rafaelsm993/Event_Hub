@@ -48,6 +48,30 @@ app.post('/api/usuarios', async (req, res) => {
   }
 });
 
+// Rota para buscar eventos com base no nome
+app.get('/eventos', (req, res) => {
+  const nameQuery = req.query.name;
+
+  if (!nameQuery) {
+    return res.status(400).json({ error: 'Parâmetro "name" é necessário' });
+  }
+
+  const sql = `
+    SELECT * FROM eventos
+    WHERE titulo LIKE ?
+  `;
+  const params = [`%${nameQuery}%`];
+
+  db.all(sql, params, (err, rows) => {
+    if (err) {
+      console.error('Erro ao buscar eventos:', err.message);
+      return res.status(500).json({ error: 'Erro ao buscar eventos' });
+    }
+
+    res.status(200).json(rows);
+  });
+});
+
 // Rota para inserir um evento
 app.post('/api/eventos', (req, res) => {
   const { titulo, descricao, data, local, id_organizador } = req.body;

@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Search() {
-  const [nome, setNome] = useState('');
+  const [name, setname] = useState('');
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const query = new URLSearchParams();
-    if (nome) query.append('nome', nome);
+    if (name) query.append('name', name);
 
     router.push(`/eventos?${query.toString()}`);
   };
@@ -23,13 +23,13 @@ export default function Search() {
           <div className="row justify-content-center">
             <div className="col-md-6 col-sm-12">
               <div className="single-model-search">
-                <h2>Nome do Evento</h2>
+                <h2>name do Evento</h2>
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Digite o nome do evento"
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
+                  placeholder="Digite o name do evento"
+                  value={name}
+                  onChange={(e) => setname(e.target.value)}
                 />
               </div>
             </div>
