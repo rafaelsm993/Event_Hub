@@ -78,15 +78,21 @@ app.post("/api/cadastro", async (req, res) => {
 app.get("/eventos", (req, res) => {
   const nameQuery = req.query.name;
 
-  if (!nameQuery) {
-    return res.status(400).json({ error: 'Parâmetro "name" é necessário' });
-  }
+  let sql;
+  let params = [];
 
-  const sql = `
-    SELECT * FROM eventos
-    WHERE titulo LIKE ?
-  `;
-  const params = [`%${nameQuery}%`];
+  if (nameQuery) {
+    sql = `
+      SELECT * FROM eventos
+      WHERE titulo LIKE ?
+    `;
+    params = [`%${nameQuery}%`];
+  } else {
+    sql = `
+      SELECT * FROM eventos
+    `;
+    // params permanece como []
+  }
 
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -172,6 +178,28 @@ app.post("/api/login", async (req, res) => {
   } catch (error) {
     console.error("Erro ao verificar usuário:", error);
     res.status(500).json({ message: "Erro interno do servidor" });
+  }
+});
+
+app.get("/eventos/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  console.log("Buscando evento com id:", id);
+
+  try {
+    const evento = await db.get(
+      "SELECT * FROM eventos WHERE id_evento = ?",
+      [id] // Passar em array para garantir funcionamento correto
+    );
+    console.log("Evento encontrado:", evento);
+
+    if (evento) {
+      res.json(evento);
+    } else {
+      res.status(404).json({ error: "Evento não encontrado" });
+    }
+  } catch (err) {
+    console.error("Erro ao buscar evento:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
 

@@ -22,10 +22,16 @@ export default function Page() {
   const nome = searchParams.get("name");
 
   useEffect(() => {
-    if (!nome) return;
+    // Define a URL base
+    let url = "http://localhost:3001/eventos";
+
+    // Se tiver nome, adiciona à URL como query string
+    if (nome) {
+      url += `?name=${encodeURIComponent(nome)}`;
+    }
 
     // Fetch the events from the server
-    fetch(`http://localhost:3001/eventos?name=${encodeURIComponent(nome)}`)
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         if (Array.isArray(data)) {

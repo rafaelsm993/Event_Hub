@@ -1,10 +1,10 @@
-'use client';
+"use client";
 import Link from "next/link";
-import { useAuth } from '../app/context/AuthContext'; 
+import { useAuth } from "../app/context/AuthContext";
 
 export default function Navbar() {
   const { isLoggedIn } = useAuth();
-  console.log('Is Logged In:', isLoggedIn);
+  console.log("Is Logged In:", isLoggedIn);
 
   return (
     <div className="top-area">
@@ -41,8 +41,8 @@ export default function Navbar() {
                 <li className="scroll active">
                   <a href="#home">INICIO</a>
                 </li>
-                <li className="scroll">
-                  <a href="#service">EVENTOS</a>
+                <li>
+                  <Link href="/eventos">EVENTOS</Link>
                 </li>
                 <li className="scroll">
                   <a href="#new-cars">FEEDBACK</a>
@@ -50,13 +50,13 @@ export default function Navbar() {
                 <li className="scroll">
                   <a href="#contact">CONTATO</a>
                 </li>
-                  {!isLoggedIn && (
-                    <li >
-                      <Link href="/login">ENTRAR</Link>
-                    </li>
-                  )}
+                {!isLoggedIn && (
+                  <li>
+                    <Link href="/login">ENTRAR</Link>
+                  </li>
+                )}
               </ul>
-             </div>
+            </div>
           </div>
         </nav>
       </div>
