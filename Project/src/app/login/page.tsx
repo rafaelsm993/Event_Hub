@@ -1,46 +1,46 @@
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Head from 'next/head';
-import { useAuth } from '../context/AuthContext'; // Adjust the path as necessary
-import './styles.css';
-
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Head from "next/head";
+import { useAuth } from "../context/AuthContext"; // Adjust the path as necessary
+import "./styles.css";
 
 export default function SignUp() {
-  const [formData, setFormData] = useState({ email: '', senha: '' });
+  const [formData, setFormData] = useState({ email: "", senha: "" });
   const router = useRouter();
   const { login } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3001/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+      const response = await fetch("http://localhost:3001/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error('Login failed');
+      if (!response.ok) throw new Error("Login failed");
 
       const result = await response.json();
-      console.log('Usuário autenticado:', result);
+      console.log("Usuário autenticado:", result);
 
-      // Save the user in localStorage
-      localStorage.setItem('usuario', JSON.stringify(result));
+      localStorage.setItem("usuario", JSON.stringify(result));
 
-      // Update the context state
       login();
 
-      // Redirect after login
-      router.push('/');
+      router.push("/");
     } catch (error) {
-      alert('Erro ao fazer login');
+      alert("Erro ao fazer login");
     }
+  };
+
+  const handleRedirectToRegister = () => {
+    router.push("/cadastro"); // ajuste o caminho conforme sua rota de cadastro
   };
 
   return (
@@ -91,220 +91,21 @@ export default function SignUp() {
         />
 
         <button type="submit">Log In</button>
+
+        <p style={{ marginTop: "1rem" }}>
+          Ainda não possui conta?{" "}
+          <span
+            style={{
+              color: "White",
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+            onClick={handleRedirectToRegister}
+          >
+            Cadastre-se
+          </span>
+        </p>
       </form>
-
-      <style jsx>{`
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-       
-
-       
-       
-       
-       
-       
-       
-       
-       
-       
-
-       
-       
-       
-
-       
-       
-       
-
-       
-       
-       
-      `}</style>
     </>
   );
 }

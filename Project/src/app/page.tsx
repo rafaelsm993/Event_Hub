@@ -1,6 +1,7 @@
 import Search from "@/components/Search";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,12 +16,14 @@ export default function Home() {
                 Nos da Event Hub estamos aqui para te ajudar a fazer seu evento
                 da melhor forma
               </p>
-              <button
-                className="welcome-btn animated fadeInDown"
-                style={{ opacity: 0 }}
-              >
-                Crie seu evento
-              </button>
+              <Link href="/criar-evento">
+                <button
+                  className="welcome-btn animated fadeInDown"
+                  style={{ opacity: 0 }}
+                >
+                  Crie seu evento
+                </button>
+              </Link>
             </div>
           </div>
           <div className="container">
