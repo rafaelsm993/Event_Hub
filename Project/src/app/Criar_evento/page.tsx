@@ -1,21 +1,23 @@
-'use client';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Head from 'next/head';
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Head from "next/head";
 
 export default function CriarEvento() {
   const [formData, setFormData] = useState({
-    titulo: '',
-    data: '',
-    local: '',
-    descricao: ''
+    titulo: "",
+    data: "",
+    local: "",
+    descricao: "",
   });
   const [imagem, setImagem] = useState<File | null>(null);
   const router = useRouter();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,28 +30,31 @@ export default function CriarEvento() {
     e.preventDefault();
     try {
       const form = new FormData();
-      form.append('titulo', formData.titulo);
-      form.append('data', formData.data);
-      form.append('local', formData.local);
-      form.append('descricao', formData.descricao);
+      form.append("titulo", formData.titulo);
+      form.append("data", formData.data);
+      form.append("local", formData.local);
+      form.append("descricao", formData.descricao);
       if (imagem) {
-        form.append('imagem', imagem);
+        form.append("imagem", imagem);
       }
 
-      const response = await fetch('http://localhost:3001/api/Criar_evento', {
-        method: 'POST',
-        body: form
+      const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
+      form.append("id_organizador", usuario.id);
+
+      const response = await fetch("http://localhost:3001/api/Criar_evento", {
+        method: "POST",
+        body: form,
       });
 
-      if (!response.ok) throw new Error('Falha ao criar evento');
+      if (!response.ok) throw new Error("Falha ao criar evento");
 
       const result = await response.json();
-      console.log('Evento criado:', result);
+      console.log("Evento criado:", result);
 
-      alert('Evento criado com sucesso!');
-      router.push('/eventos');
+      alert("Evento criado com sucesso!");
+      router.push("/eventos");
     } catch (error) {
-      alert('Erro ao criar evento');
+      alert("Erro ao criar evento");
     }
   };
 
@@ -138,7 +143,7 @@ export default function CriarEvento() {
         }
 
         body {
-          font-family: 'Poppins', sans-serif;
+          font-family: "Poppins", sans-serif;
           min-height: 100vh;
           background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
           overflow: hidden;
@@ -176,15 +181,40 @@ export default function CriarEvento() {
           animation: shoot 3s infinite ease-in;
         }
 
-        .shooting-star:nth-child(2) { top: 20%; left: -100px; animation-delay: 0s; }
-        .shooting-star:nth-child(3) { top: 35%; left: -100px; animation-delay: 1s; }
-        .shooting-star:nth-child(4) { top: 50%; left: -100px; animation-delay: 2s; }
-        .shooting-star:nth-child(5) { top: 65%; left: -100px; animation-delay: 3s; }
-        .shooting-star:nth-child(6) { top: 80%; left: -100px; animation-delay: 4s; }
+        .shooting-star:nth-child(2) {
+          top: 20%;
+          left: -100px;
+          animation-delay: 0s;
+        }
+        .shooting-star:nth-child(3) {
+          top: 35%;
+          left: -100px;
+          animation-delay: 1s;
+        }
+        .shooting-star:nth-child(4) {
+          top: 50%;
+          left: -100px;
+          animation-delay: 2s;
+        }
+        .shooting-star:nth-child(5) {
+          top: 65%;
+          left: -100px;
+          animation-delay: 3s;
+        }
+        .shooting-star:nth-child(6) {
+          top: 80%;
+          left: -100px;
+          animation-delay: 4s;
+        }
 
         @keyframes twinkle {
-          0%, 100% { opacity: 0.8; }
-          50% { opacity: 0.4; }
+          0%,
+          100% {
+            opacity: 0.8;
+          }
+          50% {
+            opacity: 0.4;
+          }
         }
 
         @keyframes shoot {
@@ -226,7 +256,8 @@ export default function CriarEvento() {
           font-size: 16px;
         }
 
-        input, textarea {
+        input,
+        textarea {
           width: 100%;
           background-color: rgba(255, 255, 255, 0.07);
           border-radius: 3px;

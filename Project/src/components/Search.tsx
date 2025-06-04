@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Search() {
-  const [name, setname] = useState('');
+  const [name, setname] = useState("");
   const router = useRouter();
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const query = new URLSearchParams();
-    if (name) query.append('name', name);
+    if (name) query.append("name", name);
 
     router.push(`/eventos?${query.toString()}`);
   };
@@ -22,7 +22,10 @@ export default function Search() {
         <div className="model-search-content">
           <div className="row justify-content-center">
             <div className="col-md-6 col-sm-12">
-              <div className="single-model-search">
+              <div
+                className="single-model-search"
+                style={{ marginLeft: "50px" }}
+              >
                 <h2>name do Evento</h2>
                 <input
                   type="text"
