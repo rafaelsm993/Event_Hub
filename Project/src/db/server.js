@@ -43,30 +43,23 @@ app.use(express.json()); // continua para rotas que não sejam multipart
 
 // Rota para inserir um usuário
 app.post("/api/cadastro", async (req, res) => {
-  let { nome, email, senha, tipo, cpf, cnpj, isCNPJ } = req.body;
+  let { nome, email, senha, documento } = req.body;
 
   console.log("Dados recebidos:", {
     nome,
     email,
     senha,
-    tipo,
-    cpf,
-    cnpj,
-    isCNPJ,
+    documento,
   });
-
-  cpf = cpf ?? null;
-  cnpj = cnpj ?? null;
-  isCNPJ = isCNPJ ? 1 : 0;
 
   try {
     const senhaHash = await bcrypt.hash(senha, 10);
 
     const stmt = db.prepare(`
-      INSERT INTO usuarios (nome, email, senha, tipo, cpf, cnpj, isCNPJ)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO usuarios (nome, email, senha, documento)
+      VALUES (?, ?, ?, ?)
     `);
-    stmt.run(nome, email, senhaHash, tipo, cpf, cnpj, isCNPJ, function (err) {
+    stmt.run(nome, email, senhaHash, documento, function (err) {
       if (err) {
         console.error("Erro ao inserir usuário:", err.message);
         res.status(500).json({ erro: "Erro ao inserir usuário" });

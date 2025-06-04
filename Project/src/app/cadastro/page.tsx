@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 import Head from "next/head";
 import "./styles.css";
 
@@ -10,35 +11,20 @@ export default function SignUp() {
     email: "",
     senha: "",
     confirmarSenha: "",
-    tipo: "Pessoa Física",
-    cpf: "",
-    cnpj: "",
+    documento: "",
   });
-
   const router = useRouter();
+  const { login } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    if (name === "cpf") {
-      const onlyNumbers = value.replace(/\D/g, "").slice(0, 11);
-      setFormData((prev) => ({ ...prev, cpf: onlyNumbers }));
-    } else if (name === "cnpj") {
+    if (name === "documento") {
       const onlyNumbers = value.replace(/\D/g, "").slice(0, 14);
-      setFormData((prev) => ({ ...prev, cnpj: onlyNumbers }));
+      setFormData((prev) => ({ ...prev, documento: onlyNumbers }));
     } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
-  };
-
-  const toggleTipo = () => {
-    setFormData((prev) => ({
-      ...prev,
-      tipo: prev.tipo === "Pessoa Física" ? "Pessoa Jurídica" : "Pessoa Física",
-    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -62,9 +48,11 @@ export default function SignUp() {
 
       const result = await response.json();
       console.log("Usuário cadastrado:", result);
+      localStorage.setItem("usuario", JSON.stringify(result));
 
+      login();
+      router.push("/");
       alert("Cadastro realizado com sucesso!");
-      router.push("/login");
     } catch (error) {
       alert("Erro ao realizar cadastro");
     }
@@ -95,18 +83,6 @@ export default function SignUp() {
 
       <form onSubmit={handleSubmit}>
         <h3>Cadastro</h3>
-
-        <h4
-          onClick={toggleTipo}
-          style={{
-            cursor: "pointer",
-            //textDecoration: "underline",
-            color: "#ffffff",
-            marginBottom: "0px",
-          }}
-        >
-          {formData.tipo}
-        </h4>
 
         <label htmlFor="nome">Nome</label>
         <input
@@ -148,33 +124,16 @@ export default function SignUp() {
           required
         />
 
-        {formData.tipo === "Pessoa Física" && (
-          <>
-            <label htmlFor="cpf">CPF</label>
-            <input
-              type="text"
-              id="cpf"
-              name="cpf"
-              value={formData.cpf}
-              onChange={handleInputChange}
-              required
-            />
-          </>
-        )}
-
-        {formData.tipo === "Pessoa Jurídica" && (
-          <>
-            <label htmlFor="cnpj">CNPJ</label>
-            <input
-              type="text"
-              id="cnpj"
-              name="cnpj"
-              value={formData.cnpj}
-              onChange={handleInputChange}
-              required
-            />
-          </>
-        )}
+        <label htmlFor="documento">Documento</label>
+        <input
+          type="text"
+          id="documento"
+          name="documento"
+          placeholder="Enter CPF or CNPJ"
+          value={formData.documento}
+          onChange={handleInputChange}
+          required
+        />
 
         <button type="submit">Cadastrar</button>
       </form>
