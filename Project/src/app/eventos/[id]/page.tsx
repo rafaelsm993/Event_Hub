@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import "./style.css";
+import 'material-design-iconic-font/dist/css/material-design-iconic-font.min.css';
 import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";

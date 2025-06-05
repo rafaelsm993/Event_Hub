@@ -38,8 +38,8 @@ export default function Navbar() {
                 data-in="fadeInDown"
                 data-out="fadeOutUp"
               >
-                <li className="scroll active">
-                  <a href="#home">INICIO</a>
+                <li className="scroll">
+                  <a href="/" target="_self">INICIO</a>
                 </li>
                 <li>
                   <Link href="/eventos">EVENTOS</Link>
@@ -52,7 +52,12 @@ export default function Navbar() {
                 </li>
                 {!isLoggedIn && (
                   <li>
-                    <Link href="/login">ENTRAR</Link>
+                    <a href="/login" target="_self">ENTRAR</a>
+                  </li>
+                )}
+                {isLoggedIn && (
+                  <li>
+                    <a href="/criar-evento" target="_self">CRIAR EVENTO</a>
                   </li>
                 )}
               </ul>

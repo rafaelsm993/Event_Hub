@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Head from "next/head";
 import "./styles.css";
 
@@ -12,7 +11,6 @@ export default function CriarEvento() {
     descricao: "",
   });
   const [imagem, setImagem] = useState<File | null>(null);
-  const router = useRouter();
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -53,7 +51,7 @@ export default function CriarEvento() {
       console.log("Evento criado:", result);
 
       alert("Evento criado com sucesso!");
-      router.push("/eventos");
+      window.location.href = "/eventos";
     } catch (error) {
       alert("Erro ao criar evento");
     }

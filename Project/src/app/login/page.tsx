@@ -1,13 +1,11 @@
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Head from "next/head";
 import { useAuth } from "../context/AuthContext"; // Adjust the path as necessary
 import "./styles.css";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({ email: "", senha: "" });
-  const router = useRouter();
   const { login } = useAuth();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,14 +31,14 @@ export default function SignUp() {
 
       login();
 
-      router.push("/");
+      window.location.href = "/";
     } catch (error) {
       alert("Erro ao fazer login");
     }
   };
 
   const handleRedirectToRegister = () => {
-    router.push("/cadastro"); // ajuste o caminho conforme sua rota de cadastro
+      window.location.href = "/cadastro";
   };
 
   return (

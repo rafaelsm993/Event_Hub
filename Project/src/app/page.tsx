@@ -35,7 +35,7 @@ export default function Home() {
 
         <section id="service" className="service">
           <div className="section-header">
-            <h2>Pilares do Event Hub</h2>
+            <h2>Nossas qualidades</h2>
           </div>
           <div className="container">
             <div className="service-content">
